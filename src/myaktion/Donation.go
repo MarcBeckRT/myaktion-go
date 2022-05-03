@@ -1,7 +1,16 @@
 package models
 
+type Status string
+
+const (
+	TRANSFERRED Status = "TRANSFERRED"
+	IN_PROCESS  Status = "IN_PROCESS"
+)
+
 type Donation struct {
-	amount           float64
-	receiptRequested bool
-	donorName        string
+	Amount           float64
+	ReceiptRequested bool
+	DonorName        string
+	Status           Status
+	Account          Account
 }

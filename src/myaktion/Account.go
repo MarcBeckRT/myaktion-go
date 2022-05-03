@@ -1,7 +1,7 @@
 package models
 
 type Account struct {
-	iban       string
-	name       string
-	nameOfBank string
+	Iban       string
+	Name       string
+	NameOfBank string
 }

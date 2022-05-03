@@ -1,7 +1,9 @@
 package models
 
 type Campaign struct {
-	name            string
-	donationMinimum float64
-	targetAmount    float64
+	Name            string
+	DonationMinimum float64
+	TargetAmount    float64
+	Donations       []Donation
+	Account         Account
 }
