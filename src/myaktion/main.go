@@ -16,4 +16,6 @@ func main() {
 	if err := http.ListenAndServe(":8000", router); err != nil {
 		log.Fatal(err)
 	}
+
+	router.HandleFunc("/campaign", handler.CreateCampaign).Methods("POST")
 }
