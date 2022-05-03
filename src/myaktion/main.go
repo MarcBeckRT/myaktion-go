@@ -18,4 +18,6 @@ func main() {
 	}
 
 	router.HandleFunc("/campaign", handler.CreateCampaign).Methods("POST")
+
+	router.HandleFunc("/campaign", handler.GetCampaigns).Methods("GET")
 }
