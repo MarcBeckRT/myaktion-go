@@ -1,7 +1,11 @@
 package main
 
 import (
-	"log"
+	
+	"os"
+	
+	log "github.com/sirupsen/logrus"
+	
 	"net/http"
 
 	"github.com/MarcBeckRT/myaktion-go/src/myaktion/handler"
@@ -19,3 +23,16 @@ func main() {
 		log.Fatal(err)
 	}
 }
+
+func init() {
+	// init logger
+	log.SetFormatter(&log.TextFormatter{})
+	log.SetReportCaller(true)
+	level, err := log.ParseLevel(os.Getenv("LOG_LEVEL"))
+	if err != nil {
+	log.Info("Log level not specified, set default to: INFO")
+	log.SetLevel(log.InfoLevel)
+	return
+	}
+	log.SetLevel(level)
+	}
