@@ -19,9 +19,11 @@ func main() {
 	router.HandleFunc("/health", handler.Health).Methods("GET")
 	router.HandleFunc("/campaign", handler.CreateCampaign).Methods("POST")
 	router.HandleFunc("/campaigns", handler.GetCampaigns).Methods("GET")
+	router.HandleFunc("/donation", handler.AddDonation).Methods("POST")
 	if err := http.ListenAndServe(":8000", router); err != nil {
 		log.Fatal(err)
 	}
+	
 }
 
 func init() {

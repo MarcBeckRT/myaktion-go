@@ -8,6 +8,7 @@ const (
 )
 
 type Donation struct {
+	ID uint
 	Amount           float64
 	ReceiptRequested bool
 	DonorName        string

@@ -4,9 +4,7 @@ import (
 	"encoding/json"
 	log "github.com/sirupsen/logrus"
 	"net/http"
-
-	"github.com/MarcBeckRT/myaktion-go/src/myaktion/models"
-	"github.com/MarcBeckRT/myaktion-go/src/myaktion/service"
+	"strconv"
 
 	"github.com/gorilla/mux"
 )

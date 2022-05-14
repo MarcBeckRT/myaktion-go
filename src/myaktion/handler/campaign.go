@@ -5,8 +5,8 @@ import (
 	log "github.com/sirupsen/logrus"
 	"net/http"
 
-	"github.com/MarcBeckRT/myaktion-go/src/myaktion/models"
 	"github.com/MarcBeckRT/myaktion-go/src/myaktion/service"
+	"github.com/MarcBeckRT/myaktion-go/src/myaktion/models"
 )
 
 func CreateCampaign(w http.ResponseWriter, r *http.Request) {
@@ -30,4 +30,14 @@ func GetCampaigns(w http.ResponseWriter, _ *http.Request) {
 		return
 	}
 	sendJson(w, campaigns)
+}
+
+func getCampaign(r *http.Request) (*models.Campaign, error) {
+	var campaign models.Campaign
+	err := json.NewDecoder(r.Body).Decode(&campaign)
+	if err != nil {
+		log.Errorf("Can't serialize request body to campaign struct: %v", err)
+		return nil, err
+	}
+	return &campaign, nil
 }
